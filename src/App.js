@@ -3,9 +3,9 @@ import './App.css';
 import NavBar from "./components/navbar/navbar";
 import {Switch, Route} from "react-router-dom";
 import Home from "./components/home/home";
-import Connection from "./components/connection/connection"
-import Bicycle from "./components/product/bicycle/product";
-
+import Connection from "./components/connection/connection";
+import allProduct from "./components/product/allProduct";
+import newProduct from "./components/product/newProduct";
 
 class App extends Component {
 
@@ -16,8 +16,9 @@ class App extends Component {
                 <NavBar/>
                 <Switch>
                     <Route path="/home" component={Home}/>
+                    <Route path="/allProducts" component={allProduct}/>
                     <Route path="/connection" component={Connection}/>
-                    <Route path="/bicycles" component={Bicycle}/>
+                    <Route path="/newProduct" component={newProduct}/>
                 </Switch>
             </div>
         );
