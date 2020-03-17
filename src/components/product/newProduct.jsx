@@ -5,79 +5,89 @@ import axios from "axios";
 class newProduct extends Component {
 
     state = {
-      name : "",
-      brand : "",
-      about : "",
-      price : "",
-      productPic : ""
+        productName: "",
+        productBrand: "",
+        productDetails: "",
+        productPrice: "",
+        imgUri: "",
+        selectedFile: null
     };
 
-    constructor(props) {
-        super(props);
-    }
-
-    onChangeName = (event) => {
-        this.setState({name: event.target.value});
-        console.log(this.state.name)
+    productNameOnChange = event => {
+        this.setState({productName: event.target.value})
     };
 
-    onChangeBrand = (event) => {
-        this.setState({brand: event.target.value})
+    productBrandOnChange = event => {
+        this.setState({productBrand: event.target.value})
     };
 
-    onChangeAbout = (event) => {
-        this.setState({about: event.target.value})
+    productDetailsOnChange = event => {
+        this.setState({productDetails: event.target.value})
     };
 
-    onChangePrice = (event) => {
-        this.setState({price: event.target.value})
+    productPriceOnChange = event => {
+        this.setState({productPrice: event.target.value})
     };
 
-    onChangeProductPic = (event) => {
-        this.setState({productPic: event.target.files[0]})
+    fileSelectedHandler = event => {
+        this.setState({selectedFile: event.target.files[0]})
     };
 
-    productAdding = () =>{
-        const fd = new FormData();
-        fd.append("image",this.state.productPic, this.state.productPic.name);
-        axios.post("http://localhost:8080/products/add-new-product",{
-            name : this.state.name,
-            brand : this.state.brand,
-            about : this.state.about,
-            price : this.state.price,
-            productPic : fd
-        }).then(resp => console.log(resp));
-        window.location = "/allProduct";
+    fileUploadHandler = () => {
+        const fd = new FormData;
+        fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
+        axios.post("http://localhost:8080/uploadFile", fd).then(resp => {
+            console.log(resp);
+            this.setState({imgUri: resp.data.fileName})
+        })
+    };
+
+    saveProduct = () => {
+        axios.post("http://localhost:8080/saveProduct",
+            {
+                name: this.state.productName,
+                brand: this.state.productBrand,
+                details: this.state.productDetails,
+                price: this.state.productPrice,
+                imgUri: this.state.imgUri
+            })
+            .then(console.log(this.state))
+            .then(resp => {
+                console.log(resp)
+            })
+        window.location = "/home";
     };
 
     render() {
         return (
-            <div className="container-md">
-                <form>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">Termék neve</label>
-                        <textarea name="name" value={this.state.name} onChange={this.onChangeName} className="form-control" id="exampleFormControlTextarea1" rows="1"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">Márka</label>
-                        <textarea name="brand" value={this.state.brand} onChange={this.onChangeBrand} className="form-control" id="exampleFormControlTextarea1" rows="1"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">Adatok</label>
-                        <textarea name="about" value={this.state.about} onChange={this.onChangeAbout} className="form-control" id="exampleFormControlTextarea1" rows="10"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">Ár</label>
-                        <textarea name="price" value={this.state.price} onChange={this.onChangePrice} className="form-control" id="exampleFormControlTextarea1" rows="1"/>
-                    </div>
+            <div className="container">
                     <div className="form-group">
                         <label htmlFor="exampleFormControlFile1">Kép</label>
-                        <input name="productPic" onChange={this.onChangeProductPic} type="file" className="form-control-file" id="exampleFormControlFile1"/>
+                        <input type="file" className="form-control-file" id="exampleFormControlFile1"
+                               onChange={this.fileSelectedHandler}/>
+                        <button type="submit" onClick={this.fileUploadHandler}>Kép feltöltése</button>
                     </div>
-                    <div>
-                        <button type="button" className="btn btn-secondary" onClick={this.productAdding}>Termék feltöltése</button>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Termék neve</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                               placeholder="De Rosa King" onChange={this.productNameOnChange}/>
                     </div>
-                </form>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Márka</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                               placeholder="De Rosa" onChange={this.productBrandOnChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Adatok</label>
+                        <textarea type="text" className="form-control" id="exampleFormControlInput1" rows="10"
+                                  onChange={this.productDetailsOnChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Ár</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                               placeholder="100" onChange={this.productPriceOnChange}/>
+                    </div>
+                    <button type="submit" className="btn btn-secondary" onClick={this.saveProduct}>Mentés</button>
             </div>
         )
     }

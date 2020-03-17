@@ -9,10 +9,11 @@ class AllProduct extends Component {
         data: []
     };
 
-    async getProducts() {
+    getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        await axios.get(`http://localhost:8080/products/get-all-product`)
+        axios.get(`http://localhost:8080/get-all-product`)
             .then((response) => {
+                console.log(response.data);
                     this.setState({data: response.data})
                 },
                 (error) => {
