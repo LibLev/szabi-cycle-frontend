@@ -29,9 +29,10 @@ class Connection extends Component {
             message: this.state.message
         });
         window.location = "/home";
-    }
+    };
 
     render() {
+        localStorage.clear()
         return (
             <div className="container">
                 <form>

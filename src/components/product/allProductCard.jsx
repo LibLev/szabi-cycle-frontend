@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
-import Product from "./product";
+import ProductCard from "./productCard";
 
-class AllProduct extends Component {
+
+class AllProductCard extends Component {
 
     state = {
         data: []
@@ -20,21 +21,22 @@ class AllProduct extends Component {
                     console.log(error)
                 }
             )
-    }
+    };
 
     componentDidMount() {
-        this.getProducts()
+        this.getProducts();
+        localStorage.clear()
     }
 
     render() {
         return (
             <div className="container-md">
                 <div className="row">
-                    {this.state.data.map((d) => (<Product data={d}/>))}
+                    {this.state.data.map((d) => (<ProductCard data={d}/>))}
                 </div>
             </div>
         )
     }
 }
 
-export default AllProduct;
+export default AllProductCard;
