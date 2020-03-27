@@ -10,8 +10,8 @@ class newProduct extends Component {
         productDetails: "",
         productPrice: "",
         // imgUri: "",
-        // selectedFile: null,
-        selectedFile1: null,
+        selectedFiles: null,
+/*      selectedFile1: null,
         selectedFile2: null,
         selectedFile3: null,
         selectedFile4: null,
@@ -20,7 +20,7 @@ class newProduct extends Component {
         imgUri2: "",
         imgUri3: "",
         imgUri4: "",
-        imgUri5: "",
+        imgUri5: "",*/
         imgUris: []
     };
 
@@ -40,40 +40,46 @@ class newProduct extends Component {
         this.setState({productPrice: event.target.value})
     };
 
-    /*    fileSelectedHandler = event => {
-            this.setState({selectedFile: event.target.files[0]})
+    fileSelectedHandler = event => {
+        let files = event.target.files;
+        const formData = new FormData;
+        const names = [];
+        for (let i = 0; i < files.length; i++) {
+            formData.append("images", files[i], files[i].name);
+            names.push(files[i].name);
+        }
+        this.setState({selectedFiles: formData});
+        this.setState({imgUris: names})
+    };
+
+    /*    fileSelectedHandler1 = event => {
+            this.setState({selectedFile1: event.target.files[0]})
+        };
+
+        fileSelectedHandler2 = event => {
+            this.setState({selectedFile2: event.target.files[0]})
+        };
+
+        fileSelectedHandler3 = event => {
+            this.setState({selectedFile3: event.target.files[0]})
+        };
+
+        fileSelectedHandler4 = event => {
+            this.setState({selectedFile4: event.target.files[0]})
+        };
+
+        fileSelectedHandler5 = event => {
+            this.setState({selectedFile5: event.target.files[0]})
         };*/
 
-    fileSelectedHandler1 = event => {
-        this.setState({selectedFile1: event.target.files[0]})
+    fileUploadHandler = () => {
+        axios.post("http://localhost:8080/uploadMultipleFiles", this.state.selectedFiles).then(resp => {
+            console.log(resp);
+            console.log(this.state.imgUris)
+        })
     };
 
-    fileSelectedHandler2 = event => {
-        this.setState({selectedFile2: event.target.files[0]})
-    };
-
-    fileSelectedHandler3 = event => {
-        this.setState({selectedFile3: event.target.files[0]})
-    };
-
-    fileSelectedHandler4 = event => {
-        this.setState({selectedFile4: event.target.files[0]})
-    };
-
-    fileSelectedHandler5 = event => {
-        this.setState({selectedFile5: event.target.files[0]})
-    };
-
-    /*    fileUploadHandler = () => {
-            const fd = new FormData;
-            fd.append("image", this.state.selectedFile, this.state.selectedFile.name);
-            axios.post("http://localhost:8080/uploadFile", fd).then(resp => {
-                console.log(resp);
-                this.setState({imgUri: resp.data.fileName})
-            })
-        };*/
-
-    multipleFileUploadHandler = () => {
+/*    multipleFileUploadHandler = () => {
         const fd = new FormData;
         fd.append("images", this.state.selectedFile1, this.state.selectedFile1.name);
         fd.append("images", this.state.selectedFile2, this.state.selectedFile2.name);
@@ -94,7 +100,7 @@ class newProduct extends Component {
                 });
             console.log(this.state)
         })
-    };
+    };*/
 
     saveProduct = () => {
         axios.post("http://localhost:8080/saveProduct",
@@ -103,17 +109,13 @@ class newProduct extends Component {
                 brand: this.state.productBrand,
                 details: this.state.productDetails,
                 price: this.state.productPrice,
-                imgUri1: this.state.imgUri1,
-                imgUri2: this.state.imgUri2,
-                imgUri3: this.state.imgUri3,
-                imgUri4: this.state.imgUri4,
-                imgUri5: this.state.imgUri5
+                imgUris: this.state.imgUris.toString()
             })
             .then(console.log(this.state))
             .then(resp => {
                 console.log(resp)
             });
-        window.location = "/home";
+       // window.location = "/home";
     };
 
     render() {
@@ -121,10 +123,10 @@ class newProduct extends Component {
             <div className="container">
                 <div className="form-group">
                     <div>
-                        <label htmlFor="exampleFormControlFile1">Kép1</label>
-                        <input type="file" className="form-control-file" id="exampleFormControlFile1"
-                               onChange={this.fileSelectedHandler1}/>
-                        <label htmlFor="exampleFormControlFile1">Kép2</label>
+                        <label htmlFor="exampleFormControlFile1">Képek kiválasztása</label>
+                        <input type="file" className="form-control-file" id="exampleFormControlFile1" multiple
+                               onChange={this.fileSelectedHandler}/>
+                        {/*<label htmlFor="exampleFormControlFile1">Kép2</label>
                         <input type="file" className="form-control-file" id="exampleFormControlFile1"
                                onChange={this.fileSelectedHandler2}/>
                         <label htmlFor="exampleFormControlFile1">Kép3</label>
@@ -135,9 +137,9 @@ class newProduct extends Component {
                                onChange={this.fileSelectedHandler4}/>
                         <label htmlFor="exampleFormControlFile1">Kép5</label>
                         <input type="file" className="form-control-file" id="exampleFormControlFile1"
-                               onChange={this.fileSelectedHandler5}/>
+                               onChange={this.fileSelectedHandler5}/>*/}
                     </div>
-                    <button type="submit" onClick={this.multipleFileUploadHandler}>Kép feltöltése</button>
+                    <button type="submit" onClick={this.fileUploadHandler}>Képek feltöltése</button>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">Termék neve</label>

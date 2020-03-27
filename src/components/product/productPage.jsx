@@ -70,6 +70,28 @@ class ProductPage extends Component {
 
                                                         </Carousel.Caption>
                                                     </Carousel.Item>
+                                                    <Carousel.Item>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[3]}`}
+                                                            alt="Third slide"
+                                                        />
+
+                                                        <Carousel.Caption>
+
+                                                        </Carousel.Caption>
+                                                    </Carousel.Item>
+                                                    <Carousel.Item>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[4]}`}
+                                                            alt="Third slide"
+                                                        />
+
+                                                        <Carousel.Caption>
+
+                                                        </Carousel.Caption>
+                                                    </Carousel.Item>
                                                 </Carousel>
                                             </div>
                                         </div>
@@ -93,7 +115,7 @@ class ProductPage extends Component {
                                                                 <label className="col-sm-2 control-label"
                                                                        htmlFor="inputContact1"><b>Adatok:</b></label>
                                                                 <div className="col-sm-10">
-                                                                    <span>{this.state.data.details}</span>
+                                                                    <span style={{ whiteSpace: "pre-line" }}>{this.state.data.details}</span>
                                                                 </div>
                                                             </div>
                                                             <div className="form-group">
