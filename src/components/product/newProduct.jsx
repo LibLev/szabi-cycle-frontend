@@ -9,6 +9,7 @@ class newProduct extends Component {
         productBrand: "",
         productDetails: "",
         productPrice: "",
+        productType: "",
         selectedFiles: null,
         imgUris: []
     };
@@ -27,6 +28,11 @@ class newProduct extends Component {
 
     productPriceOnChange = event => {
         this.setState({productPrice: event.target.value})
+    };
+
+    onChangeProductType = event => {
+        this.setState({productType: event.target.value});
+        console.log(this.state.productType);
     };
 
     fileSelectedHandler = event => {
@@ -55,6 +61,7 @@ class newProduct extends Component {
                 brand: this.state.productBrand,
                 details: this.state.productDetails,
                 price: this.state.productPrice,
+                productType: this.state.productType,
                 imgUris: this.state.imgUris.toString()
             })
             .then(console.log(this.state))
@@ -74,6 +81,14 @@ class newProduct extends Component {
                                onChange={this.fileSelectedHandler}/>
                     </div>
                     <button type="submit" onClick={this.fileUploadHandler}>Képek feltöltése</button>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleFormControlInput1">Termék típusa</label>
+                    <select name="productType" onChange={this.onChangeProductType}>
+                        <option value="none">None</option>
+                        <option value="bicycle">Kerékpár</option>
+                        <option value="component">Alkatrész</option>
+                    </select>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">Termék neve</label>
