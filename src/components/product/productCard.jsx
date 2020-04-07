@@ -16,9 +16,6 @@ class ProductCard extends Component {
                          alt="Card image cap" style={{ height: "70%" }}/>
                     <div className="card-body">
                         <p className="card-text"> {this.props.data.name}</p>
-                        {/*<p className="card-text"> <b>Márka:</b> {this.props.data.brand}</p>
-                        <p className="card-text" style={{ whiteSpace: "pre-line" }}> <b>Adatok:</b> <br/>{this.props.data.details}</p>
-                        <p className="card-text"> <b>Ár:</b> {this.props.data.price} huf</p>*/}
                     </div>
                 </div>
             </div>

@@ -36,6 +36,7 @@ class newProduct extends Component {
     };
 
     fileSelectedHandler = event => {
+        console.log(localStorage.getItem("token"));
         let files = event.target.files;
         const formData = new FormData;
         const names = [];
@@ -47,15 +48,22 @@ class newProduct extends Component {
         this.setState({imgUris: names})
     };
 
-    fileUploadHandler = () => {
-        axios.post("http://localhost:8080/uploadMultipleFiles", this.state.selectedFiles).then(resp => {
+    fileUploadHandler = async () => {
+        let token = localStorage.getItem("token");
+        await axios.post("http://localhost:8080/uploadMultipleFiles",
+            this.state.selectedFiles,
+            {headers: {
+                    Authorization: `Bearer ${token}`,
+                },}
+        ).then(resp => {
             console.log(resp);
             console.log(this.state.imgUris)
         })
     };
 
-    saveProduct = () => {
-        axios.post("http://localhost:8080/saveProduct",
+    saveProduct = async () => {
+        let token = localStorage.getItem("token");
+        await axios.post("http://localhost:8080/saveProduct",
             {
                 name: this.state.productName,
                 brand: this.state.productBrand,
@@ -63,12 +71,16 @@ class newProduct extends Component {
                 price: this.state.productPrice,
                 productType: this.state.productType,
                 imgUris: this.state.imgUris.toString()
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
             })
             .then(console.log(this.state))
             .then(resp => {
                 console.log(resp)
             });
-        window.location = "/home";
+        window.location = "/editProducts";
     };
 
     render() {
@@ -80,7 +92,7 @@ class newProduct extends Component {
                         <input type="file" className="form-control-file" id="exampleFormControlFile1" multiple
                                onChange={this.fileSelectedHandler}/>
                     </div>
-                    <button type="submit" onClick={this.fileUploadHandler}>Képek feltöltése</button>
+                    <button onClick={this.fileUploadHandler}>Képek feltöltése</button>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleFormControlInput1">Termék típusa</label>
@@ -110,7 +122,7 @@ class newProduct extends Component {
                     <input type="text" className="form-control" id="exampleFormControlInput1"
                            placeholder="100" onChange={this.productPriceOnChange}/>
                 </div>
-                <button type="submit" className="btn btn-secondary" onClick={this.saveProduct}>Mentés</button>
+                <button className="btn btn-secondary" onClick={this.saveProduct}>Mentés</button>
             </div>
         )
     }

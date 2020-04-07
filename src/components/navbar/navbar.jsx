@@ -4,7 +4,6 @@ import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 
 class NavBar extends Component {
 
-
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

@@ -4,12 +4,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios";
 
-class ProductPage extends Component {
+class EditProductPage extends Component {
 
     state = {
         isLoaded: false,
-        data: []
+        data: [],
+        productName: "",
+        productBrand: "",
+        productDetails: "",
+        productPrice: ""
     };
+
+    productNameOnChange = event => {
+        this.setState({productName: event.target.value})
+    };
+
+    productBrandOnChange = event => {
+        this.setState({productBrand: event.target.value})
+    };
+
+    productDetailsOnChange = event => {
+        this.setState({productDetails: event.target.value})
+    };
+
+    productPriceOnChange = event => {
+        this.setState({productPrice: event.target.value})
+    };
+
 
     getProductData = () => {
         axios.get("http://localhost:8080/product/" + localStorage.getItem("productId"))
@@ -20,6 +41,27 @@ class ProductPage extends Component {
                 (error) => {
                     console.log(error)
                 })
+    };
+
+    updateProduct = () => {
+        let token = localStorage.getItem("token");
+        axios.post("http://localhost:8080/updateProduct", {
+            id: this.state.data.id,
+            name: this.state.productName,
+            brand: this.state.productBrand,
+            details: this.state.productDetails,
+            price: this.state.productPrice,
+            productType: this.state.data.productType,
+            imgUris: this.state.data.imgUris.toString()
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }).then((resp) => {
+            console.log(resp.data);
+        }).catch((e) => {
+            console.log(e.message)
+        })
     };
 
     componentDidMount() {
@@ -65,32 +107,46 @@ class ProductPage extends Component {
                                             <div className="panel-body">
                                                 <div className="h4 text-center"><b>{this.state.data.name}</b></div>
                                                 <div className="row pv-lg">
-                                                    <div className="col-lg-3"></div>
+                                                    <div className="col-lg-3"/>
                                                     <div className="col-lg-8">
                                                         <form className="form-horizontal ng-pristine ng-valid">
                                                             <div className="form-group">
                                                                 <label className="col-sm-2 control-label"
+                                                                       htmlFor="inputContact1"><b>Termék neve:</b></label>
+                                                                <div className="col-sm-10">
+                                                                    <input onChange={this.productNameOnChange} type="text"
+                                                                           placeholder={this.state.data.name}/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="form-group">
+                                                                <label className="col-sm-2 control-label"
                                                                        htmlFor="inputContact1"><b>Márka:</b></label>
                                                                 <div className="col-sm-10">
-                                                                    <span>{this.state.data.brand}</span>
+                                                                    <input onChange={this.productBrandOnChange} type="text"
+                                                                           placeholder={this.state.data.brand}/>
                                                                 </div>
                                                             </div>
                                                             <div className="form-group">
                                                                 <label className="col-sm-2 control-label"
                                                                        htmlFor="inputContact1"><b>Adatok:</b></label>
                                                                 <div className="col-sm-10">
-                                                                    <span
-                                                                        style={{whiteSpace: "pre-line"}}>{this.state.data.details}</span>
+                                                                    <textarea onChange={this.productDetailsOnChange}
+                                                                              placeholder={this.state.data.details}
+                                                                              rows="10"/>
                                                                 </div>
                                                             </div>
                                                             <div className="form-group">
                                                                 <label className="col-sm-2 control-label"
                                                                        htmlFor="inputContact1"><b>Ár:</b></label>
                                                                 <div className="col-sm-10">
-                                                                    <span>{this.state.data.price}</span>
+                                                                    <input onChange={this.productPriceOnChange} type="text"
+                                                                           placeholder={this.state.data.price}/>
                                                                 </div>
                                                             </div>
                                                         </form>
+                                                        <div>
+                                                            <button onClick={this.updateProduct}>Mentés</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -106,4 +162,4 @@ class ProductPage extends Component {
     }
 }
 
-export default ProductPage;
+export default EditProductPage;
