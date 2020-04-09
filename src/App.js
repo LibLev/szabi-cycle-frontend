@@ -11,6 +11,7 @@ import allComponent from "./components/product/allComponentCard";
 import signin from "./components/sigin/signin";
 import editProducts from "./components/handler/editProducts";
 import editProductPage from "./components/handler/editProductPage";
+import about from "./components/about/about"
 
 class App extends Component {
 
@@ -30,6 +31,7 @@ class App extends Component {
                         <Route path="/signin" component={signin}/>
                         <Route path="/editProducts" component={editProducts}/>
                         <Route path="/editProduct" component={editProductPage}/>
+                        <Route path="/about" component={about}/>
                     </Switch>
                 </div>
             </div>

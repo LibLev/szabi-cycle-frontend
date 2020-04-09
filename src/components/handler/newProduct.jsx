@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
+import {Redirect} from "react-router";
 
 class newProduct extends Component {
 
@@ -11,7 +12,8 @@ class newProduct extends Component {
         productPrice: "",
         productType: "",
         selectedFiles: null,
-        imgUris: []
+        imgUris: [],
+        redirect: false
     };
 
     productNameOnChange = event => {
@@ -52,13 +54,21 @@ class newProduct extends Component {
         let token = localStorage.getItem("token");
         await axios.post("http://localhost:8080/uploadMultipleFiles",
             this.state.selectedFiles,
-            {headers: {
+            {
+                headers: {
                     Authorization: `Bearer ${token}`,
-                },}
+                },
+            }
         ).then(resp => {
             console.log(resp);
             console.log(this.state.imgUris)
         })
+    };
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to="/editProducts"/>
+        }
     };
 
     saveProduct = async () => {
@@ -78,51 +88,54 @@ class newProduct extends Component {
             })
             .then(console.log(this.state))
             .then(resp => {
-                console.log(resp)
+                console.log(resp);
+                this.setState({redirect: true})
             });
-        window.location = "/editProducts";
     };
 
     render() {
         return (
-            <div className="container">
-                <div className="form-group">
-                    <div>
-                        <label htmlFor="exampleFormControlFile1">Képek kiválasztása</label>
-                        <input type="file" className="form-control-file" id="exampleFormControlFile1" multiple
-                               onChange={this.fileSelectedHandler}/>
+            <div>
+                {this.renderRedirect()}
+                <div className="container">
+                    <div className="form-group">
+                        <div>
+                            <label htmlFor="exampleFormControlFile1">Képek kiválasztása</label>
+                            <input type="file" className="form-control-file" id="exampleFormControlFile1" multiple
+                                   onChange={this.fileSelectedHandler}/>
+                        </div>
+                        <button onClick={this.fileUploadHandler}>Képek feltöltése</button>
                     </div>
-                    <button onClick={this.fileUploadHandler}>Képek feltöltése</button>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Termék típusa</label>
+                        <select name="productType" onChange={this.onChangeProductType}>
+                            <option value="none">None</option>
+                            <option value="bicycle">Kerékpár</option>
+                            <option value="component">Alkatrész</option>
+                        </select>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Termék neve</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                               placeholder="De Rosa King" onChange={this.productNameOnChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Márka</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                               placeholder="De Rosa" onChange={this.productBrandOnChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Adatok</label>
+                        <textarea type="text" className="form-control" id="exampleFormControlInput1" rows="10"
+                                  onChange={this.productDetailsOnChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">Ár</label>
+                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                               placeholder="100" onChange={this.productPriceOnChange}/>
+                    </div>
+                    <button className="btn btn-secondary" onClick={this.saveProduct}>Mentés</button>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Termék típusa</label>
-                    <select name="productType" onChange={this.onChangeProductType}>
-                        <option value="none">None</option>
-                        <option value="bicycle">Kerékpár</option>
-                        <option value="component">Alkatrész</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Termék neve</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1"
-                           placeholder="De Rosa King" onChange={this.productNameOnChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Márka</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1"
-                           placeholder="De Rosa" onChange={this.productBrandOnChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Adatok</label>
-                    <textarea type="text" className="form-control" id="exampleFormControlInput1" rows="10"
-                              onChange={this.productDetailsOnChange}/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleFormControlInput1">Ár</label>
-                    <input type="text" className="form-control" id="exampleFormControlInput1"
-                           placeholder="100" onChange={this.productPriceOnChange}/>
-                </div>
-                <button className="btn btn-secondary" onClick={this.saveProduct}>Mentés</button>
             </div>
         )
     }

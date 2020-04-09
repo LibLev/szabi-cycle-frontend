@@ -7,7 +7,7 @@ class NavBar extends Component {
     render() {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="/home">Szabi Cycle</Navbar.Brand>
+                <Navbar.Brand href="/home">SzabiCycle</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
@@ -16,6 +16,7 @@ class NavBar extends Component {
                             <NavDropdown.Item href="/components">Alkatrészek</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="/connection">Kapcsolat</Nav.Link>
+                        <Nav.Link href="/about">Rólunk</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
