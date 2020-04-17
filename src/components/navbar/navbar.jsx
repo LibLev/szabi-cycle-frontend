@@ -11,9 +11,28 @@ class NavBar extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <NavDropdown title="Termékek" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/bicycles">Kerékpárok</NavDropdown.Item>
-                            <NavDropdown.Item href="/components">Alkatrészek</NavDropdown.Item>
+                        <NavDropdown title="Kerékpárok" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="">Országúti</NavDropdown.Item>
+                            <NavDropdown.Item href="">Cyclecross</NavDropdown.Item>
+                            <NavDropdown.Item href="">Gravel</NavDropdown.Item>
+                            <NavDropdown.Item href="">City</NavDropdown.Item>
+                            <NavDropdown.Item href="">Trekking</NavDropdown.Item>
+                            <NavDropdown.Item href="">Pálya</NavDropdown.Item>
+                            <NavDropdown.Item href="">MTB</NavDropdown.Item>
+                        </NavDropdown>
+                        <NavDropdown title="Alkatrészek" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="">Kormány</NavDropdown.Item>
+                            <NavDropdown.Item href="">Markolat/Bandázs</NavDropdown.Item>
+                            <NavDropdown.Item href="">Fékkar/Váltókar</NavDropdown.Item>
+                            <NavDropdown.Item href="">Fék</NavDropdown.Item>
+                            <NavDropdown.Item href="">Váltó</NavDropdown.Item>
+                            <NavDropdown.Item href="">Hajtás</NavDropdown.Item>
+                            <NavDropdown.Item href="">Kerék</NavDropdown.Item>
+                            <NavDropdown.Item href="">Nyereg</NavDropdown.Item>
+                            <NavDropdown.Item href="">Krományszár</NavDropdown.Item>
+                            <NavDropdown.Item href="">Nyeregcső</NavDropdown.Item>
+                            <NavDropdown.Item href="">Váz</NavDropdown.Item>
+                            <NavDropdown.Item href="">Villa</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="/connection">Kapcsolat</Nav.Link>
                         <Nav.Link href="/about">Rólunk</Nav.Link>
