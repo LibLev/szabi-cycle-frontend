@@ -12,27 +12,29 @@ class NavBar extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <NavDropdown title="Kerékpárok" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="">Országúti</NavDropdown.Item>
-                            <NavDropdown.Item href="">Cyclecross</NavDropdown.Item>
-                            <NavDropdown.Item href="">Gravel</NavDropdown.Item>
-                            <NavDropdown.Item href="">City</NavDropdown.Item>
-                            <NavDropdown.Item href="">Trekking</NavDropdown.Item>
-                            <NavDropdown.Item href="">Pálya</NavDropdown.Item>
-                            <NavDropdown.Item href="">MTB</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/road">Országúti</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/cx">Cyclecross</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/gravel">Gravel</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/city">City</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/trekking">Trekking</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/track">Pálya</NavDropdown.Item>
+                            <NavDropdown.Item href="/bicycles/mtb">MTB</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Alkatrészek" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="">Kormány</NavDropdown.Item>
-                            <NavDropdown.Item href="">Markolat/Bandázs</NavDropdown.Item>
-                            <NavDropdown.Item href="">Fékkar/Váltókar</NavDropdown.Item>
-                            <NavDropdown.Item href="">Fék</NavDropdown.Item>
-                            <NavDropdown.Item href="">Váltó</NavDropdown.Item>
-                            <NavDropdown.Item href="">Hajtás</NavDropdown.Item>
-                            <NavDropdown.Item href="">Kerék</NavDropdown.Item>
-                            <NavDropdown.Item href="">Nyereg</NavDropdown.Item>
-                            <NavDropdown.Item href="">Krományszár</NavDropdown.Item>
-                            <NavDropdown.Item href="">Nyeregcső</NavDropdown.Item>
-                            <NavDropdown.Item href="">Váz</NavDropdown.Item>
-                            <NavDropdown.Item href="">Villa</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/handlebar">Kormány</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/bartape">Markolat/Bandázs</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/calliper">Fékkar/Váltókar</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/break">Fék</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/shifter">Váltó</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/crankset">Hajtás</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/wheel">Kerék</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/saddle">Nyereg</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/stem">Krományszár</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/seatpost">Nyeregcső</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/frame">Váz</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/fork">Villa</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/groupset">Szett</NavDropdown.Item>
+                            <NavDropdown.Item href="/components/pedal">Pedál</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="/connection">Kapcsolat</Nav.Link>
                         <Nav.Link href="/about">Rólunk</Nav.Link>

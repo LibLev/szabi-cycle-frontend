@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios";
 
-class ProductPage extends Component {
+class ComponentPage extends Component {
 
     state = {
         isLoaded: false,
@@ -12,7 +12,7 @@ class ProductPage extends Component {
     };
 
     getProductData = () => {
-        axios.get("http://localhost:8080/product/" + localStorage.getItem("productId"))
+        axios.get("http://localhost:8080/component/" + localStorage.getItem("productId"))
             .then((response) => {
                     this.setState({data: response.data});
                     this.setState({isLoaded: true})
@@ -24,23 +24,6 @@ class ProductPage extends Component {
 
     componentDidMount() {
         this.getProductData();
-    };
-
-    createImgs = () => {
-        let imgs = [];
-        for (let i = 0; i < this.state.data.imgUris.length; i++) {
-            imgs.push(
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[i]}`}
-                        alt="Third slide"
-                    />
-                    <Carousel.Caption/>
-                </Carousel.Item>
-            )
-        }
-        return imgs;
     };
 
 
@@ -55,7 +38,38 @@ class ProductPage extends Component {
                                         <div className="panel panel-default">
                                             <div className="panel-body text-center">
                                                 <Carousel>
-                                                    {this.createImgs()}
+                                                    <Carousel.Item>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[0]}`}
+                                                            alt="First slide"
+                                                        />
+                                                        <Carousel.Caption>
+
+                                                        </Carousel.Caption>
+                                                    </Carousel.Item>
+                                                    <Carousel.Item>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[1]}`}
+                                                            alt="Third slide"
+                                                        />
+
+                                                        <Carousel.Caption>
+
+                                                        </Carousel.Caption>
+                                                    </Carousel.Item>
+                                                    <Carousel.Item>
+                                                        <img
+                                                            className="d-block w-100"
+                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[2]}`}
+                                                            alt="Third slide"
+                                                        />
+
+                                                        <Carousel.Caption>
+
+                                                        </Carousel.Caption>
+                                                    </Carousel.Item>
                                                 </Carousel>
                                             </div>
                                         </div>
@@ -79,8 +93,7 @@ class ProductPage extends Component {
                                                                 <label className="col-sm-2 control-label"
                                                                        htmlFor="inputContact1"><b>Adatok:</b></label>
                                                                 <div className="col-sm-10">
-                                                                    <span
-                                                                        style={{whiteSpace: "pre-line"}}>{this.state.data.details}</span>
+                                                                    <span>{this.state.data.details}</span>
                                                                 </div>
                                                             </div>
                                                             <div className="form-group">
@@ -106,4 +119,4 @@ class ProductPage extends Component {
     }
 }
 
-export default ProductPage;
+export default ComponentPage;

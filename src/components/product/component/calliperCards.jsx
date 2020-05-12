@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
-import ProductCard from "./productCard";
+import ComponentCard from "./componentCard";
 
 
-class AllComponentCard extends Component {
+class CalliperCards extends Component {
 
     state = {
         data: []
@@ -12,7 +12,7 @@ class AllComponentCard extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`http://localhost:8080/get-all-component`)
+        axios.get(`http://localhost:8080/get-all-calliper-component`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})
@@ -32,11 +32,11 @@ class AllComponentCard extends Component {
         return (
             <div className="container-md">
                 <div className="row">
-                    {this.state.data.map((d) => (<ProductCard data={d}/>))}
+                    {this.state.data.map((d) => (<ComponentCard data={d}/>))}
                 </div>
             </div>
         )
     }
 }
 
-export default AllComponentCard;
+export default CalliperCards;

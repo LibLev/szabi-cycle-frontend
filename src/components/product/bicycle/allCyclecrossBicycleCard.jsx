@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
-import ProductCard from "./productCard";
+import BicycleCard from "./bicycleCard";
 
 
-class AllBicycleCard extends Component {
+class AllCyclecrossBicycleCard extends Component {
 
     state = {
         data: []
@@ -12,7 +12,7 @@ class AllBicycleCard extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`http://localhost:8080/get-all-bicycle`)
+        axios.get(`http://localhost:8080/get-all-cyclecross-bicycle`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})
@@ -32,11 +32,11 @@ class AllBicycleCard extends Component {
         return (
             <div className="container-md">
                 <div className="row">
-                    {this.state.data.map((d) => (<ProductCard data={d}/>))}
+                    {this.state.data.map((d) => (<BicycleCard data={d}/>))}
                 </div>
             </div>
         )
     }
 }
 
-export default AllBicycleCard;
+export default AllCyclecrossBicycleCard;

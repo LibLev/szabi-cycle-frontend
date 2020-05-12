@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import {Redirect} from "react-router";
 
-class ProductCard extends Component {
+class ComponentCard extends Component {
 
     state = {
         redirect: false
@@ -15,7 +15,7 @@ class ProductCard extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/product"/>
+            return <Redirect to="/component"/>
         }
 
     };
@@ -40,4 +40,4 @@ class ProductCard extends Component {
 
 }
 
-export default ProductCard;
+export default ComponentCard;
