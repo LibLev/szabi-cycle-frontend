@@ -89,11 +89,12 @@ class BicyclePage extends Component {
                                                     <div className="col-lg-8">
                                                         <form className="form-horizontal ng-pristine ng-valid">
                                                             <div className="form-group">
-                                                                <label className="col-sm-2 control-label"
-                                                                       htmlFor="inputContact1"><b>Márka:</b></label>
-                                                                <div className="col-sm-10">
-                                                                    <span>{this.state.data.brand}</span>
-                                                                </div>
+                                                                <table>
+                                                                    <tr>
+                                                                        <th>Márka:</th>
+                                                                        <td>{this.state.data.brand}</td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
                                                             <div className="form-group">
                                                                 <label className="col-sm-2 control-label"
@@ -160,11 +161,12 @@ class BicyclePage extends Component {
                                                                 </div>
                                                             </div>
                                                             <div className="form-group">
-                                                                <label className="col-sm-2 control-label"
-                                                                       htmlFor="inputContact1"><b>Ár:</b></label>
-                                                                <div className="col-sm-10">
-                                                                    <span>{this.state.data.price}</span>
-                                                                </div>
+                                                                <table>
+                                                                    <tr>
+                                                                        <th>Ár:</th>
+                                                                        <td>{this.state.data.price}</td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
                                                         </form>
                                                     </div>

@@ -48,11 +48,11 @@ class MainPage extends Component {
             <div className="container-md">
                 <h5>Legújabb kerékpárok:</h5>
                 <div className="row">
-                    {this.state.bicycles.slice(0,3).map((d) => (<BicycleCard data={d}/>))}
+                    {this.state.bicycles.slice(Math.max(this.state.bicycles.length - 3, 0)).map((d) => (<BicycleCard data={d}/>))}
                 </div>
                 <h5>Legújabb alkatrészek:</h5>
                 <div className="row">
-                    {this.state.components.slice(0,3).map((d) => (<ComponentCard data={d}/>))}
+                    {this.state.components.slice(Math.max(this.state.components.length - 3, 0)).map((d) => (<ComponentCard data={d}/>))}
                 </div>
             </div>
         )
