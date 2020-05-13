@@ -22,6 +22,23 @@ class ComponentPage extends Component {
                 })
     };
 
+    createImgs = () => {
+        let imgs = [];
+        for (let i = 0; i < this.state.data.imgUris.length; i++) {
+            imgs.push(
+                <Carousel.Item>
+                    <img
+                        className="d-block w-100"
+                        src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[i]}`}
+                        alt="Third slide"
+                    />
+                    <Carousel.Caption/>
+                </Carousel.Item>
+            )
+        }
+        return imgs;
+    };
+
     componentDidMount() {
         this.getProductData();
     };
@@ -38,38 +55,7 @@ class ComponentPage extends Component {
                                         <div className="panel panel-default">
                                             <div className="panel-body text-center">
                                                 <Carousel>
-                                                    <Carousel.Item>
-                                                        <img
-                                                            className="d-block w-100"
-                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[0]}`}
-                                                            alt="First slide"
-                                                        />
-                                                        <Carousel.Caption>
-
-                                                        </Carousel.Caption>
-                                                    </Carousel.Item>
-                                                    <Carousel.Item>
-                                                        <img
-                                                            className="d-block w-100"
-                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[1]}`}
-                                                            alt="Third slide"
-                                                        />
-
-                                                        <Carousel.Caption>
-
-                                                        </Carousel.Caption>
-                                                    </Carousel.Item>
-                                                    <Carousel.Item>
-                                                        <img
-                                                            className="d-block w-100"
-                                                            src={`http://localhost:8080/downloadFile/${this.state.data.imgUris[2]}`}
-                                                            alt="Third slide"
-                                                        />
-
-                                                        <Carousel.Caption>
-
-                                                        </Carousel.Caption>
-                                                    </Carousel.Item>
+                                                    {this.createImgs()}
                                                 </Carousel>
                                             </div>
                                         </div>

@@ -32,6 +32,7 @@ import StemCards from "./components/product/component/stemCards";
 import WheelCards from "./components/product/component/wheelCards";
 import MainPage from "./components/mainPage";
 import Footer from "./components/footer";
+import ComponentPage from "./components/product/component/componentPage";
 
 class App extends Component {
 
@@ -67,6 +68,7 @@ class App extends Component {
                             <Route path="/components/wheel" component={WheelCards}/>
                             <Route path="/connection" component={Connection}/>
                             <Route path="/bicycle" component={bicyclePage}/>
+                            <Route path="/component" component={ComponentPage}/>
                             <Route path="/about" component={about}/>
                             <Route path="/" component={MainPage}/>
                         </Switch>
