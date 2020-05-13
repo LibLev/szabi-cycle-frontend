@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import './style.css';
 import NavBar from "./components/navbar/navbar";
 import {Route, Switch} from "react-router-dom";
 import Connection from "./components/connection/connection";
@@ -28,45 +30,49 @@ import SeatPostCards from "./components/product/component/seatPostCards";
 import ShifterCards from "./components/product/component/shifterCards";
 import StemCards from "./components/product/component/stemCards";
 import WheelCards from "./components/product/component/wheelCards";
+import MainPage from "./components/mainPage";
+import Footer from "./components/footer";
 
 class App extends Component {
 
 
     render() {
         return (
-            <div>
-                <NavBar/>
-                <div className="container-md" style={{marginTop: "30px"}}>
-                    <Switch>
-                        <Route path="/allbicycle" component={allBicycle}/>
-                        <Route path="/bicycles/road" component={allRoadBicycleCard}/>
-                        <Route path="/bicycles/mtb" component={allMTBBicycleCard}/>
-                        <Route path="/bicycles/cx" component={allCyclecrossBicycleCard}/>
-                        <Route path="/bicycles/gravel" component={allGravelBicycleCard}/>
-                        <Route path="/bicycles/track" component={allTrackBicycleCard}/>
-                        <Route path="/bicycles/trekking" component={allTrekkingBicycleCard}/>
-                        <Route path="/bicycles/city" component={allCityBicycleCard}/>
-                        <Route path="/allcomponent" component={allComponent}/>
-                        <Route path="/components/bartape" component={BartapeCards}/>
-                        <Route path="/components/break" component={BreakCards}/>
-                        <Route path="/components/calliper" component={CalliperCards}/>
-                        <Route path="/components/crankset" component={CranksetCards}/>
-                        <Route path="/components/fork" component={ForkCards}/>
-                        <Route path="/components/frame" component={FrameCards}/>
-                        <Route path="/components/groupset" component={GroupsetCards}/>
-                        <Route path="/components/handlebar" component={HandlebarCards}/>
-                        <Route path="/components/pedal" component={PedalCards}/>
-                        <Route path="/components/saddle" component={SaddleCards}/>
-                        <Route path="/components/seatpost" component={SeatPostCards}/>
-                        <Route path="/components/shifter" component={ShifterCards}/>
-                        <Route path="/components/stem" component={StemCards}/>
-                        <Route path="/components/wheel" component={WheelCards}/>
-                        <Route path="/connection" component={Connection}/>
-                        <Route path="/bicycle" component={bicyclePage}/>
-                        <Route path="/about" component={about}/>
-                    </Switch>
+                <div>
+                    <NavBar/>
+                    <div className="container-md" style={{marginTop: "30px"}}>
+                        <Switch>
+                            <Route path="/allbicycle" component={allBicycle}/>
+                            <Route path="/bicycles/road" component={allRoadBicycleCard}/>
+                            <Route path="/bicycles/mtb" component={allMTBBicycleCard}/>
+                            <Route path="/bicycles/cx" component={allCyclecrossBicycleCard}/>
+                            <Route path="/bicycles/gravel" component={allGravelBicycleCard}/>
+                            <Route path="/bicycles/track" component={allTrackBicycleCard}/>
+                            <Route path="/bicycles/trekking" component={allTrekkingBicycleCard}/>
+                            <Route path="/bicycles/city" component={allCityBicycleCard}/>
+                            <Route path="/allcomponent" component={allComponent}/>
+                            <Route path="/components/bartape" component={BartapeCards}/>
+                            <Route path="/components/break" component={BreakCards}/>
+                            <Route path="/components/calliper" component={CalliperCards}/>
+                            <Route path="/components/crankset" component={CranksetCards}/>
+                            <Route path="/components/fork" component={ForkCards}/>
+                            <Route path="/components/frame" component={FrameCards}/>
+                            <Route path="/components/groupset" component={GroupsetCards}/>
+                            <Route path="/components/handlebar" component={HandlebarCards}/>
+                            <Route path="/components/pedal" component={PedalCards}/>
+                            <Route path="/components/saddle" component={SaddleCards}/>
+                            <Route path="/components/seatpost" component={SeatPostCards}/>
+                            <Route path="/components/shifter" component={ShifterCards}/>
+                            <Route path="/components/stem" component={StemCards}/>
+                            <Route path="/components/wheel" component={WheelCards}/>
+                            <Route path="/connection" component={Connection}/>
+                            <Route path="/bicycle" component={bicyclePage}/>
+                            <Route path="/about" component={about}/>
+                            <Route path="/" component={MainPage}/>
+                        </Switch>
+                    </div>
+                    <Footer/>
                 </div>
-            </div>
         );
     }
 }

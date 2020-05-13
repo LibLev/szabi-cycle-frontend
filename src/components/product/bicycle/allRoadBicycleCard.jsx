@@ -30,10 +30,17 @@ class AllRoadBicycleCard extends Component {
 
     render() {
         return (
-            <div className="container-md">
-                <div className="row">
-                    {this.state.data.map((d) => (<BicycleCard data={d}/>))}
-                </div>
+            <div>
+                {this.state.data.length > 0 ? (
+                        <div className="container-md">
+                            <div className="row">
+                                {this.state.data.map((d) => (<BicycleCard data={d}/>))}
+                            </div>
+                        </div>
+                    )
+                    : (<div className="container-md">
+                        <h4>Jelenleg nincs ilyen termékünk</h4>
+                    </div>)}
             </div>
         )
     }

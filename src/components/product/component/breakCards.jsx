@@ -15,7 +15,7 @@ class BreakCards extends Component {
         axios.get(`http://localhost:8080/get-all-break-component`)
             .then((response) => {
                     console.log(response.data);
-                    this.setState({data: response.data})
+                    this.setState({data: response.data});
                 },
                 (error) => {
                     console.log(error)
@@ -30,10 +30,17 @@ class BreakCards extends Component {
 
     render() {
         return (
-            <div className="container-md">
-                <div className="row">
-                    {this.state.data.map((d) => (<ComponentCard data={d}/>))}
-                </div>
+            <div>
+                {this.state.data.length > 0 ? (
+                        <div className="container-md">
+                            <div className="row">
+                                {this.state.data.map((d) => (<ComponentCard data={d}/>))}
+                            </div>
+                        </div>
+                    )
+                    : (<div className="container-md">
+                        <h4>Jelenleg nincs ilyen termékünk</h4>
+                    </div>)}
             </div>
         )
     }
