@@ -43,6 +43,7 @@ class MainPage extends Component {
         this.getComponents();
     }
 
+
     render() {
         return (
             <div className="container-md">
