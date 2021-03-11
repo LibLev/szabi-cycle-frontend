@@ -12,7 +12,7 @@ class ShifterCards extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`http://localhost:8080/get-all-shifter-component`)
+        axios.get(`/get-all-shifter-component`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})

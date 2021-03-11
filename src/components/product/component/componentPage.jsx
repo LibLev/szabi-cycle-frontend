@@ -12,7 +12,7 @@ class ComponentPage extends Component {
     };
 
     getProductData = () => {
-        axios.get("http://localhost:8080/component/" + localStorage.getItem("productId"))
+        axios.get("/component/" + localStorage.getItem("productId"))
             .then((response) => {
                     this.setState({data: response.data});
                     this.setState({isLoaded: true})
@@ -29,7 +29,7 @@ class ComponentPage extends Component {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={`http://localhost:8080/component/image/download/${this.state.data.id}/${i}`}
+                        src={`/component/image/download/${this.state.data.id}/${i}`}
                         alt="Third slide"
                     />
                     <Carousel.Caption/>
