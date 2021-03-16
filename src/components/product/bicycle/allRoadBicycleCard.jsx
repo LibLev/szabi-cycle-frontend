@@ -18,7 +18,7 @@ class AllRoadBicycleCard extends Component {
                     this.setState({data: response.data})
                 },
                 (error) => {
-                    console.log(error)
+                    console.log(error.message)
                 }
             )
     };
