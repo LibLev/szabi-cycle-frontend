@@ -12,7 +12,7 @@ class StemCards extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`/get-all-stem-component`)
+        axios.get(`https://szabicycle.herokuapp.com/get-all-stem-component`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})

@@ -12,7 +12,7 @@ class HandlebarCards extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`/get-all-handlebar-component`)
+        axios.get(`https://szabicycle.herokuapp.com/get-all-handlebar-component`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})

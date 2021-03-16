@@ -12,7 +12,7 @@ class AllMTBBicycleCard extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`/get-all-mtb-bicycle`)
+        axios.get(`https://szabicycle.herokuapp.com/get-all-mtb-bicycle`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})

@@ -12,7 +12,7 @@ class SaddleCards extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`/get-all-saddle-component`)
+        axios.get(`https://szabicycle.herokuapp.com/get-all-saddle-component`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})

@@ -29,7 +29,7 @@ class Connection extends Component {
     };
 
     sendMail = () => {
-        axios.post("/send-mail", {
+        axios.post("https://szabicycle.herokuapp.com/send-mail", {
             emailAddress: this.state.emailAddress,
             subject: this.state.subject,
             message: this.state.message
@@ -66,13 +66,13 @@ class Connection extends Component {
                             <label htmlFor="exampleFormControlTextarea1">Tárgy</label>
                             <textarea name="subject" value={this.state.subject} onChange={this.onChangeSubject}
                                       className="form-control"
-                                      id="exampleFormControlTextarea1" rows="1"></textarea>
+                                      id="exampleFormControlTextarea1" rows="1"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleFormControlTextarea1">Üzenet</label>
                             <textarea name="message" value={this.state.message} onChange={this.onChangeMessage}
                                       className="form-control"
-                                      id="exampleFormControlTextarea1" rows="10"></textarea>
+                                      id="exampleFormControlTextarea1" rows="10"/>
                         </div>
                         <div>
                             <button type="button" className="btn btn-secondary" onClick={this.sendMail}>Küldés</button>

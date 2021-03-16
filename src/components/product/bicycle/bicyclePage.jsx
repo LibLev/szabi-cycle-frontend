@@ -32,7 +32,7 @@ class BicyclePage extends Component {
 
 
     getProductData = () => {
-        axios.get("/bicycle/" + localStorage.getItem("productId"))
+        axios.get("https://szabicycle.herokuapp.com/bicycle/" + localStorage.getItem("productId"))
             .then((response) => {
                     this.setState({data: response.data});
                     this.setState({isLoaded: true})
@@ -53,7 +53,7 @@ class BicyclePage extends Component {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src={`/bicycle/image/download/${this.state.data.id}/${i}`}
+                        src={`https://szabicycle.herokuapp.com/bicycle/image/download/${this.state.data.id}/${i}`}
                         alt="Third slide"
                     />
                     <Carousel.Caption/>
