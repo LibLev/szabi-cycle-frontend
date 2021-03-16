@@ -29,7 +29,7 @@ class Connection extends Component {
     };
 
     sendMail = () => {
-        axios.post("https://szabicycle.herokuapp.com/send-mail", {
+        axios.post("/send-mail", {
             emailAddress: this.state.emailAddress,
             subject: this.state.subject,
             message: this.state.message

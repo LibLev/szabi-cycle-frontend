@@ -12,7 +12,7 @@ class CranksetCards extends Component {
 
     getProducts = () => {
         axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
-        axios.get(`https://szabicycle.herokuapp.com/get-all-crankset-component`)
+        axios.get(`/get-all-crankset-component`)
             .then((response) => {
                     console.log(response.data);
                     this.setState({data: response.data})
