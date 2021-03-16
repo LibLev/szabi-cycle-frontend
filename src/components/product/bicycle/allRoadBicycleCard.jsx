@@ -25,7 +25,6 @@ class AllRoadBicycleCard extends Component {
 
     componentDidMount() {
         this.getProducts();
-        localStorage.clear()
     }
 
     render() {
