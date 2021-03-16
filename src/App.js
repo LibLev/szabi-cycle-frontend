@@ -70,7 +70,6 @@ class App extends Component {
                             <Route path="/bicycle" component={bicyclePage}/>
                             <Route path="/component" component={ComponentPage}/>
                             <Route path="/about" component={about}/>
-                            <Route path="/" component={MainPage}/>
                             <Route path="/home" component={MainPage}/>
                         </Router>
                     </div>
