@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import NavBar from "./components/navbar/navbar";
-import {Route, Switch} from "react-router-dom";
+import {Route, BrowserRouter as Router} from "react-router-dom";
 import Connection from "./components/connection/connection";
 import allBicycle from "./components/product/bicycle/allBicycleCard";
 import allComponent from "./components/product/component/allComponentCard";
@@ -42,7 +42,7 @@ class App extends Component {
                 <div>
                     <NavBar/>
                     <div className="container-md" style={{marginTop: "30px"}}>
-                        <Switch>
+                        <Router>
                             <Route path="/allbicycle" component={allBicycle}/>
                             <Route path="/bicycles/road" component={allRoadBicycleCard}/>
                             <Route path="/bicycles/mtb" component={allMTBBicycleCard}/>
@@ -71,7 +71,7 @@ class App extends Component {
                             <Route path="/component" component={ComponentPage}/>
                             <Route path="/about" component={about}/>
                             <Route path="/" component={MainPage}/>
-                        </Switch>
+                        </Router>
                     </div>
                     <Footer/>
                 </div>
