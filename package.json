@@ -44,6 +44,5 @@
   "devDependencies": {
     "min-jquery": "^1.7.0",
     "react-router-dom": "^5.1.2"
-  },
-  "proxy": "https://szabicycle.herokuapp.com"
+  }
 }
