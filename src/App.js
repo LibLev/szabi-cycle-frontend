@@ -71,7 +71,6 @@ class App extends Component {
                             <Route path="/component" component={ComponentPage}/>
                             <Route path="/about" component={about}/>
                             <Route path="/home" component={MainPage}/>
-                            <MainPage />
                         </Router>
                     </div>
                     <Footer/>
