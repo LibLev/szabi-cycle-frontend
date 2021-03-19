@@ -15,7 +15,7 @@ class ComponentCard extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to={"/component"+this.props.data.id}/>
+            return <Redirect to={"/component/"+this.props.data.id}/>
         }
 
     };
