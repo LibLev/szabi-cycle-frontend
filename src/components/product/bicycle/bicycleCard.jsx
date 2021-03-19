@@ -15,7 +15,7 @@ class BicycleCard extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="https://szabicycle.herokuapp.com/bicycle"/>
+            return <Redirect to="/bicycle"/>
         }
 
     };
