@@ -66,8 +66,8 @@ class App extends Component {
                             <Route path="/components/stem" component={StemCards}/>
                             <Route path="/components/wheel" component={WheelCards}/>
                             <Route path="/connection" component={Connection}/>
-                            <Route path="/bicycle" component={bicyclePage}/>
-                            <Route path="/component" component={ComponentPage}/>
+                            <Route path="/bicycle/:id" component={bicyclePage}/>
+                            <Route path="/component/:id" component={ComponentPage}/>
                             <Route path="/about" component={about}/>
                             <Route path="/home" component={MainPage}/>
                         </Router>

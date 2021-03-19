@@ -15,7 +15,7 @@ class BicycleCard extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/bicycle"/>
+            return <Redirect to={"/bicycle/"+this.props.data.id}/>
         }
 
     };

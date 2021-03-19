@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios";
 import Footer from "../../footer";
+import { withRouter } from "react-router";
 
 class BicyclePage extends Component {
 
@@ -14,7 +15,8 @@ class BicyclePage extends Component {
 
 
     getProductData = () => {
-        axios.get("https://szabicycle.herokuapp.com/bicycle/" + localStorage.getItem("productId"))
+        const id = this.props.match.params.id;
+        axios.get(`https://szabicycle.herokuapp.com/bicycle/`+id)
             .then((response) => {
                     this.setState({data: response.data});
                     this.setState({isLoaded: true})
