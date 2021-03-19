@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import NavBar from "./components/navbar/navbar";
-import {Route, BrowserRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Connection from "./components/connection/connection";
 import allBicycle from "./components/product/bicycle/allBicycleCard";
 import allComponent from "./components/product/component/allComponentCard";
@@ -31,7 +31,6 @@ import ShifterCards from "./components/product/component/shifterCards";
 import StemCards from "./components/product/component/stemCards";
 import WheelCards from "./components/product/component/wheelCards";
 import MainPage from "./components/mainPage";
-import Footer from "./components/footer";
 import ComponentPage from "./components/product/component/componentPage";
 
 class App extends Component {
@@ -73,7 +72,6 @@ class App extends Component {
                             <Route path="/home" component={MainPage}/>
                         </Router>
                     </div>
-                    <Footer/>
                 </div>
         );
     }

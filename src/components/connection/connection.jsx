@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import {Redirect} from "react-router";
+import Footer from "../footer";
 
 class Connection extends Component {
 
@@ -79,6 +80,7 @@ class Connection extends Component {
                         </div>
                     </form>
                 </div>
+                <Footer/>
             </div>
         )
     }

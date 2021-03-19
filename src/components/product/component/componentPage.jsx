@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios";
+import Footer from "../../footer";
 
 class ComponentPage extends Component {
 
@@ -100,6 +101,7 @@ class ComponentPage extends Component {
                         </div>
                     )
                     : "Loading"}
+                <Footer/>
             </div>
         )
     }

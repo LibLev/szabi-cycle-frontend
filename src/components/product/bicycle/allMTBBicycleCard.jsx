@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import BicycleCard from "./bicycleCard";
+import Footer from "../../footer";
 
 
 class AllMTBBicycleCard extends Component {
@@ -41,6 +42,7 @@ class AllMTBBicycleCard extends Component {
                     : (<div className="container-md">
                         <h4>Jelenleg nincs ilyen termékünk</h4>
                     </div>)}
+                <Footer/>
             </div>
         )
     }

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
+import Footer from "../footer";
 
 class About extends Component {
 
@@ -24,6 +25,7 @@ class About extends Component {
                         </span>
                     </div>
                 </div>
+                <Footer/>
             </div>
         )
     }
