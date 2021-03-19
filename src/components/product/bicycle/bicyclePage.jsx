@@ -9,26 +9,7 @@ class BicyclePage extends Component {
 
     state = {
         isLoaded: false,
-        data: [],
-        name: "",
-        brand: "",
-        frame: "",
-        fork:"",
-        groupSet:"",
-        shifters:"",
-        callipers:"",
-        breaks:"",
-        seatPost:"",
-        saddle:"",
-        stem:"",
-        handleBar:"",
-        barTape:"",
-        pedal:"",
-        wheels:"",
-        details: "",
-        price: "",
-        typeOfBicycle: "",
-        redirect: false
+        data: []
     };
 
 
@@ -41,10 +22,6 @@ class BicyclePage extends Component {
                 (error) => {
                     console.log(error)
                 })
-    };
-
-    componentDidMount() {
-        this.getProductData();
     };
 
     createImgs = () => {
@@ -62,6 +39,10 @@ class BicyclePage extends Component {
             )
         }
         return imgs;
+    };
+
+    componentDidMount() {
+        this.getProductData();
     };
 
 
