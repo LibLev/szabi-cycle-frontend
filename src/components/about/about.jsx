@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import Footer from "../footer";
+import "./about.css"
 
 class About extends Component {
 
@@ -10,7 +10,7 @@ class About extends Component {
 
     render() {
         return (
-            <div className="container-sm">
+            <div className="container-sm" id="main-wrapper">
                 <div className="card">
                     <div className="card-body">
                         <span>
@@ -25,7 +25,6 @@ class About extends Component {
                         </span>
                     </div>
                 </div>
-                <Footer/>
             </div>
         )
     }

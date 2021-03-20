@@ -80,7 +80,6 @@ class Connection extends Component {
                         </div>
                     </form>
                 </div>
-                <Footer/>
             </div>
         )
     }

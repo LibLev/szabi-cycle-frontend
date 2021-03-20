@@ -1,0 +1,13 @@
+#main-wrapper {
+    min-height: 100%;
+    padding: 0 0 100px;
+    position: relative;
+}
+
+#no-content{
+    padding: 0 0 210px;
+}
+
+#loading{
+    padding: 0 0 225px;
+}

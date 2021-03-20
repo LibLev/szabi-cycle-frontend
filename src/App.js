@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import './style.css';
+import './components/footer.css';
 import NavBar from "./components/navbar/navbar";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Connection from "./components/connection/connection";
@@ -32,6 +32,8 @@ import StemCards from "./components/product/component/stemCards";
 import WheelCards from "./components/product/component/wheelCards";
 import MainPage from "./components/mainPage";
 import ComponentPage from "./components/product/component/componentPage";
+import Footer from "./components/footer";
+
 
 class App extends Component {
 
@@ -40,7 +42,7 @@ class App extends Component {
         return (
                 <div>
                     <NavBar/>
-                    <div className="container-md" style={{marginTop: "30px"}}>
+                    <div className="container" style={{marginTop: "30px"}}>
                         <Router>
                             <Route path="/allbicycle" component={allBicycle}/>
                             <Route path="/bicycles/road" component={allRoadBicycleCard}/>
@@ -72,6 +74,7 @@ class App extends Component {
                             <Route path="/home" component={MainPage}/>
                         </Router>
                     </div>
+                    <Footer />
                 </div>
         );
     }

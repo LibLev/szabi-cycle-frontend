@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios";
-import Footer from "../../footer";
-import { withRouter } from "react-router";
+import "../../../body.css"
 
 class ComponentPage extends Component {
 
@@ -49,7 +48,7 @@ class ComponentPage extends Component {
 
     render() {
         return (
-            <div>
+            <div id="main-wrapper">
                 {this.state.isLoaded ? (
                         <div className="container-sm">
                             <div className="container bootstrap snippet">
@@ -102,8 +101,8 @@ class ComponentPage extends Component {
                             </div>
                         </div>
                     )
-                    : "Loading"}
-                <Footer/>
+                    : <div className="container" id="loading">Loading
+                    </div>}
             </div>
         )
     }

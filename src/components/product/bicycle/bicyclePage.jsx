@@ -3,8 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import axios from "axios";
-import Footer from "../../footer";
-import { withRouter } from "react-router";
 
 class BicyclePage extends Component {
 
@@ -69,7 +67,7 @@ class BicyclePage extends Component {
                                             <div className="panel-body">
                                                 <div className="h4 text-center"><b>{this.state.data.name}</b></div>
                                                 <div className="row pv-lg">
-                                                    <div className="col-lg-3"></div>
+                                                    <div className="col-lg-3"/>
                                                     <div className="col-lg-8">
                                                         <form className="form-horizontal ng-pristine ng-valid">
                                                             <div className="form-group">
@@ -162,8 +160,8 @@ class BicyclePage extends Component {
                             </div>
                         </div>
                     )
-                    : "Loading"}
-                <Footer/>
+                    :  <div className="container" id="loading">Loading
+                    </div>}
             </div>
         )
     }

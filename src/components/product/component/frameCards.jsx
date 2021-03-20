@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import ComponentCard from "./componentCard";
-import Footer from "../../footer";
-
+import "../../../body.css"
 
 class FrameCards extends Component {
 
@@ -31,7 +30,7 @@ class FrameCards extends Component {
 
     render() {
         return (
-            <div>
+            <div id="main-wrapper">
                 {this.state.data.length > 0 ? (
                         <div className="container-md">
                             <div className="row">
@@ -39,10 +38,9 @@ class FrameCards extends Component {
                             </div>
                         </div>
                     )
-                    : (<div className="container-md">
+                    : (<div className="container" id="no-content">
                         <h4>Jelenleg nincs ilyen termékünk</h4>
                     </div>)}
-                <Footer/>
             </div>
         )
     }

@@ -3,8 +3,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.css';
 import BicycleCard from "./product/bicycle/bicycleCard";
 import ComponentCard from "./product/component/componentCard";
-import Footer from "./footer";
-
+import "../body.css"
 
 class MainPage extends Component {
 
@@ -46,7 +45,8 @@ class MainPage extends Component {
 
     render() {
         return (
-            <div className="container-md">
+
+            <div className="container" id="main-wrapper">
                 <h5>Legújabb kerékpárok:</h5>
                 <div className="row">
                     {this.state.bicycles.slice(Math.max(this.state.bicycles.length - 3, 0)).map((d) => (<BicycleCard data={d}/>))}
@@ -55,8 +55,8 @@ class MainPage extends Component {
                 <div className="row">
                     {this.state.components.slice(Math.max(this.state.components.length - 3, 0)).map((d) => (<ComponentCard data={d}/>))}
                 </div>
-                <Footer/>
             </div>
+
         )
     }
 }
