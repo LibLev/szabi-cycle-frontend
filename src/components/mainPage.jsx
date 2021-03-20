@@ -47,14 +47,20 @@ class MainPage extends Component {
         return (
 
             <div className="container" id="main-wrapper">
-                <h5>Legújabb kerékpárok:</h5>
-                <div className="row">
-                    {this.state.bicycles.slice(Math.max(this.state.bicycles.length - 3, 0)).map((d) => (<BicycleCard data={d}/>))}
-                </div>
-                <h5>Legújabb alkatrészek:</h5>
-                <div className="row">
-                    {this.state.components.slice(Math.max(this.state.components.length - 3, 0)).map((d) => (<ComponentCard data={d}/>))}
-                </div>
+                {this.state.bicycles.length > 0 || this.state.components.length > 0 ? (
+                    <div>
+                    <h5>Legújabb kerékpárok:</h5>
+                    <div className="row">
+                        {this.state.bicycles.slice(Math.max(this.state.bicycles.length - 3, 0)).map((d) => (<BicycleCard data={d}/>))}
+                    </div>
+                    <h5>Legújabb alkatrészek:</h5>
+                    <div className="row">
+                {this.state.components.slice(Math.max(this.state.components.length - 3, 0)).map((d) => (<ComponentCard data={d}/>))}
+                    </div>
+                    </div>) : (
+                        <div className="container" id="loading">JELENLEG NINCSENEK TERMÉKEINK</div>
+                    )}
+
             </div>
 
         )
