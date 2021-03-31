@@ -20,7 +20,7 @@ class Footer extends Component{
                 <footer>
                     <div className="social">
                         <a onClick={this.openInstagram}><FontAwesomeIcon icon={faInstagram}/></a>
-                        <a href={this.openFacebook}><FontAwesomeIcon icon={faFacebook}/></a>
+                        <a onClick={this.openFacebook}><FontAwesomeIcon icon={faFacebook}/></a>
                     </div>
                     <ul className="list-inline">
                         <li className="list-inline-item"><a href="/home">Főoldal</a></li>
