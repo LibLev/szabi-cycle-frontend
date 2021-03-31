@@ -33,6 +33,7 @@ import WheelCards from "./components/product/component/wheelCards";
 import MainPage from "./components/mainPage";
 import ComponentPage from "./components/product/component/componentPage";
 import Footer from "./components/footer";
+import {Redirect} from "react-router";
 
 
 class App extends Component {
@@ -72,6 +73,7 @@ class App extends Component {
                             <Route path="/component/:id" component={ComponentPage}/>
                             <Route path="/about" component={about}/>
                             <Route path="/home" component={MainPage}/>
+                            <Route exact path="/"  component={()=><Redirect to="/home"/>}/>
                         </Router>
                     </div>
                     <Footer />
