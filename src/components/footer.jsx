@@ -10,13 +10,17 @@ class Footer extends Component{
         window.open("https://www.instagram.com/szabicycle/");
     }
 
+    openFacebook = () => {
+        window.open("https://www.facebook.com/SzabiCycle-106486874875987");
+    }
+
     render() {
         return(
             <div className="footer-basic">
                 <footer>
                     <div className="social">
                         <a onClick={this.openInstagram}><FontAwesomeIcon icon={faInstagram}/></a>
-                        <a href="#"><FontAwesomeIcon icon={faFacebook}/></a>
+                        <a href={this.openFacebook}><FontAwesomeIcon icon={faFacebook}/></a>
                     </div>
                     <ul className="list-inline">
                         <li className="list-inline-item"><a href="/home">Főoldal</a></li>
